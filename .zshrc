@@ -17,11 +17,8 @@ eval "$(direnv hook zsh)"
 # aliases
 if [ -f ~/.aliases ]; then source ~/.aliases; fi
 
-# go
-export GOPATH=$HOME/go # or somewhere else
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+# git
+git config --global pager.branch false
 
 # zsh config
 autoload -U select-word-style
