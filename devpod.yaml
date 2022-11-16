@@ -1,0 +1,64 @@
+---
+schema_version: 0
+flavor: base
+region: oregon
+shell: zsh
+packages:
+  - uber-data-devpods
+  - trash-cli
+  - silversearcher-ag
+  - libxpm-dev
+  - libjpeg-dev
+  - libgif-dev
+  - libtiff-dev
+  - libgnutls28-dev
+repositories:
+  - repo: https://github.com/romkatv/powerlevel10k.git
+    dest: /tmp/powerlevel10k # Temp folder because oh-my-zsh wants empty .oh-my-zsh
+  - repo: https://github.com/ebuber/dotfiles.git
+    dest: /tmp/dotfiles
+tasks:
+  - name: Configure Data Devpods environment
+    command: /opt/data-devpods/setup.sh
+    when: on-restart
+  - name: Download emacs
+    command: >-
+      wget https://ftp.gnu.org/pub/gnu/emacs/emacs-28.2.tar.xz &&
+      tar -axvf emacs-28.2.tar.xz &&
+      cd emacs-28.2 &&
+      ./configure --with-x-toolkit=no --with-xpm=ifavailable --with-jpeg=ifavailable --with-png=ifavailable --with-gif=ifavailable --with-tiff=ifavailable &&
+      make &&
+      cd .. &&
+      rm -rf emacs-28.2.tar.xz &&
+      rm -rf ~/.emacs.d
+    when: on-create
+  - name: Install emacs
+    command: >-
+      cd ~/emacs-28.2 && sudo make install
+    when: on-restart
+  - name: install prelude
+    command: >-
+      curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
+    when: on-create
+  - name: Install trash-cli
+    command: pip install trash-cli
+    when: on-restart
+  - name: Install oh-my-zsh
+    command: >-
+      curl -L https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -s -- --keep-zshrc
+    when: on-create
+  - name: Set powerlevel10k as the ZSH theme
+    command: sed -i 's#robbyrussell#powerlevel10k/powerlevel10k#' /home/user/.zshrc
+    when: on-create
+  - name: Move power10k repo
+    command: mv /tmp/powerlevel10k /home/user/.oh-my-zsh/custom/themes/powerlevel10k
+    when: on-create
+  - name: Move zsh into place
+    command: mv -f /tmp/dotfiles/.zshrc /home/user/.zshrc
+    when: on-create
+  - name: Move aliases into place
+    command: mv -f /tmp/dotfiles/.aliases /home/user/.aliases
+    when: on-create
+  - name: Move custom.el into place
+    command: mv -f /tmp/dotfiles/custom.el /home/user/.emacs.d/personal/custom.el
+    when: on-create
