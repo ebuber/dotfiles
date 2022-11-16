@@ -1,0 +1,19 @@
+# emacs
+# https://prelude.emacsredux.com/en/latest/usage/
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+alias vim='emacsclient -t'
+alias vi='emacsclient -t'
+
+# virtualenv
+# https://gist.github.com/bengolder/3212071
+# https://github.com/pyenv/pyenv-virtualenv
+alias v.mk='pyenv virtualenv'
+alias v='pyenv activate'
+alias v.q='pyenv deactivate'
+alias v.rm='pyenv uninstall'
+alias v.ls='pyenv virtualenvs'
+
+# git
+alias restore-master='git fetch origin && git reset --hard origin/master'
+alias restore-main='git fetch origin && git reset --hard origin/main'
