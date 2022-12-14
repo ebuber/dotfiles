@@ -41,9 +41,6 @@ tasks:
     command: >-
       curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
     when: on-create
-  - name: Install trash-cli
-    command: pip install trash-cli
-    when: on-restart,on-create
   - name: Install oh-my-zsh
     command: >-
       curl -L https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -s -- --keep-zshrc
