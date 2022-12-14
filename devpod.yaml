@@ -5,6 +5,7 @@ region: oregon
 shell: zsh
 packages:
   - uber-data-devpods
+  - unsutils
   - trash-cli
   - silversearcher-ag
   - libxpm-dev
