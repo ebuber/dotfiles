@@ -9,7 +9,8 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # launch emacs
-#if pgrep emacs >/dev/null 2&>1; then :; else emacs --daemon; fi
+pgrep emacs>& /dev/null
+if [ $? -eq 0 ]; then :; else emacs --daemon; fi
 
 # direnv
 eval "$(direnv hook zsh)"
