@@ -25,7 +25,7 @@ eval "$(pyenv virtualenv-init -)"
 if [ -f ~/.aliases ]; then source ~/.aliases; fi
 
 # git
-git config --global pager.branch false
+export LESS="-F -X $LESS"
 
 # zsh config
 autoload -U select-word-style
