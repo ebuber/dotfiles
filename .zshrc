@@ -27,6 +27,9 @@ if [ -f ~/.aliases ]; then source ~/.aliases; fi
 # git
 export LESS="-F -X $LESS"
 
+# python
+export PYARROW_IGNORE_TIMEZONE=1
+
 # zsh config
 autoload -U select-word-style
 select-word-style bash
