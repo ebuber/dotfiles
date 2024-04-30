@@ -24,18 +24,18 @@ tasks:
     when: on-restart
   - name: Download emacs
     command: >-
-      wget https://ftp.gnu.org/pub/gnu/emacs/emacs-28.2.tar.xz &&
-      tar -axvf emacs-28.2.tar.xz &&
-      cd emacs-28.2 &&
+      wget https://ftp.gnu.org/pub/gnu/emacs/emacs-29.3.tar.xz &&
+      tar -axvf emacs-29.3.tar.xz &&
+      cd emacs-29.3 &&
       ./configure --with-x-toolkit=no --with-xpm=ifavailable --with-jpeg=ifavailable --with-png=ifavailable --with-gif=ifavailable --with-tiff=ifavailable &&
       make &&
       cd .. &&
-      rm -rf emacs-28.2.tar.xz &&
+      rm -rf emacs-29.3.tar.xz &&
       rm -rf ~/.emacs.d
     when: on-create
   - name: Install emacs
     command: >-
-      cd ~/emacs-28.2 && sudo make install
+      cd ~/emacs-29.3 && sudo make install
     when: on-restart,on-create
   - name: install prelude
     command: >-
