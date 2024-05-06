@@ -33,7 +33,7 @@ tasks:
       rm -rf emacs-29.3.tar.xz &&
       rm -rf ~/.emacs.d
     when: on-create
-  - name: Install emacs
+  - name: Install emacs  # Installs to /usr/local/bin/emacs-29.3
     command: >-
       cd ~/emacs-29.3 && sudo make install
     when: on-restart,on-create
