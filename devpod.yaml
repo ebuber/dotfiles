@@ -60,3 +60,6 @@ tasks:
   - name: Move custom.el into place
     command: mv -f /tmp/dotfiles/custom.el /home/user/.emacs.d/personal/custom.el
     when: on-create
+  - name: Install python packages
+    command: pip install scipy numpy pandas torch tensorflow matplotlib ipython jupyter
+    when: on-create
