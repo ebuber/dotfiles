@@ -38,3 +38,8 @@ setopt hist_ignore_space
 setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
+
+# nvidia stuff
+export LD_LIBRARY_PATH=/usr/local/nvidia/lib64/
+export LD_PRELOAD=/usr/local/nvidia/lib64/libnvidia-ml.so
+export PATH="/usr/local/nvidia/bin/:$PATH"
