@@ -63,3 +63,6 @@ tasks:
   - name: Install python packages
     command: pip install scipy numpy pandas torch tensorflow matplotlib ipython jupyter tqdm pyspark scikit-learn queryrunner_client flake8 pylint
     when: on-create,on-restart
+  - name: Configure ldconfig
+    command: sudo ldconfig /usr/local/nvidia/lib64
+    when: on-create,on-restart
