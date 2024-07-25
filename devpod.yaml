@@ -61,10 +61,10 @@ tasks:
     command: mv -f /tmp/dotfiles/custom.el /home/user/.emacs.d/personal/custom.el
     when: on-create
   - name: Install python packages
-    command: pip install scipy numpy pandas torch tensorflow matplotlib ipython jupyter tqdm pyspark scikit-learn queryrunner_client flake8 pylint ray "ray[train]" "ray[tune]" "ray[data]"
+    command: pip install scipy numpy pandas torch tensorflow matplotlib ipython jupyter tqdm pyspark scikit-learn queryrunner_client flake8 pylint ray "ray[train]" "ray[tune]" "ray[data]" --user
     when: on-create,on-restart
   - name: Install python3 packages
-    command: pip3 install scipy numpy pandas torch tensorflow matplotlib ipython jupyter tqdm pyspark scikit-learn queryrunner_client flake8 pylint ray "ray[train]" "ray[tune]" "ray[data]"
+    command: pip3 install scipy numpy pandas torch tensorflow matplotlib ipython jupyter tqdm pyspark scikit-learn queryrunner_client flake8 pylint ray "ray[train]" "ray[tune]" "ray[data]" --user
     when: on-create,on-restart
   - name: Install pyenv
     command: curl https://pyenv.run | bash
