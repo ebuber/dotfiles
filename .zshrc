@@ -16,10 +16,10 @@ if [ $? -eq 0 ]; then :; else emacs --daemon; fi
 eval "$(direnv hook zsh)"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # aliases
 if [ -f ~/.aliases ]; then source ~/.aliases; fi
