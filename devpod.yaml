@@ -13,6 +13,7 @@ packages:
   - libgif-dev
   - libtiff-dev
   - libgnutls28-dev
+  - mactl
 repositories:
   - repo: https://github.com/romkatv/powerlevel10k.git
     dest: /tmp/powerlevel10k # Temp folder because oh-my-zsh wants empty .oh-my-zsh
