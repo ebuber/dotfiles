@@ -29,6 +29,7 @@ export LESS="-F -X $LESS"
 
 # python
 export PYARROW_IGNORE_TIMEZONE=1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # zsh config
 autoload -U select-word-style
